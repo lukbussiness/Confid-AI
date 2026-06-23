@@ -1,0 +1,273 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 40px;
+  background-color: white;
+  border-bottom: 1px solid #ddd;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  position: relative;
+}
+.logout-btn{
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.logout-icon{
+  width: 45px;
+  height: 45px;
+  transition: transform 0.2s;
+}
+
+.logout-icon:hover{
+  transform: scale(1.1);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.logo {
+  width: 30px;
+  height: 35px;
+  border: 2px solid #2b7de9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logito {
+  width: 120px;
+  height: 110px;
+}
+.logo-text {
+  font-size: 30px;
+  margin-left: 10px;
+  font-weight: bold;
+  color: #333;
+}
+.highlight {
+  color: #2b7de9;
+}
+
+.nav {
+  display: flex;
+  gap: 30px;
+  font-size: 25px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #333;
+  font-size: 25px;
+}
+
+.nav a:hover {
+  color: #2b7de9;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.profile-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.user-icon {
+  font-size: 40px;
+  color: #555;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+  color: #141414;
+}
+
+.user-info small {
+  font-size: 12px;
+  color: #141414;
+}
+
+h5{
+  justify-content: center;
+  align-items: center;
+  margin-left: 7%;
+}
+.ver_perfil{
+  text-decoration:none;
+  color:#2b7de9;
+  font-size:13px;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #333;
+  z-index: 100;
+}
+.mobile-user{
+  display:none;
+}
+
+.mobile-user-info{
+  display:flex;
+  flex-direction:column;
+  color: black;
+}
+
+.mobile-only{
+  display:none;
+}
+@media (max-width: 1024px) {
+
+  .header {
+    padding: 20px 30px;
+  }
+
+  .logito {
+    width: 80px;
+    height: 70px;
+  }
+
+  .logo-text {
+    font-size: 22px;
+  }
+
+  .nav a {
+    font-size: 18px;
+  }
+
+  .nav {
+    gap: 20px;
+    font-size: 18px;
+  }
+
+  .user-icon {
+    font-size: 30px;
+  }
+
+  .user-info {
+    font-size: 15px;
+  }
+}
+@media (max-width: 768px) {
+
+  .header {
+    flex-wrap: wrap;
+    padding: 14px 16px;
+    gap: 10px;
+  }
+
+  .nav.open {
+    display: flex;
+  }
+
+  .nav a {
+    font-size: 16px;
+    padding: 6px 0;
+  }
+
+  .logito {
+    width: 75px;
+    height: 70px;
+  }
+
+  .logo-text {
+    font-size: 25px;
+  }
+
+  .user-info {
+    font-size: 15px;
+  }
+
+  .user-icon {
+    font-size: 26px;
+  }
+
+  .logout-icon{
+    width: 35px;
+    height: 35px;
+  }
+}
+@media (max-width: 480px) {
+
+  .menu-toggle {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+
+  .header-right {
+    display: none;
+  }
+
+  .nav {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: white;
+    border-top: 1px solid #ddd;
+    padding: 15px;
+    gap: 15px;
+  }
+
+  .nav.open {
+    display: flex;
+  }
+
+  .mobile-user{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    border-bottom:1px solid #ddd;
+    padding-bottom:10px;
+  }
+
+  .mobile-user-info span{
+    font-size:13px;
+  }
+
+  .mobile-user-info a{
+    font-size:13px;
+    text-decoration:none;
+    color:#2b7de9;
+  }
+
+  .mobile-only{
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+
+  .header{
+    padding: 20px 20px;
+  }
+
+  .logo-text {
+    font-size: 20px;
+  }
+
+  .logito {
+    width: 80px;
+    height: 70px;
+  }
+
+  .logout-icon{
+    width: 35px;
+    height: 35px;
+  }
+
+}
