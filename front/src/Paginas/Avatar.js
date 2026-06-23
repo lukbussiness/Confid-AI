@@ -66,7 +66,7 @@ const Avatar = () => {
                 setInterviewStarted(true);
                 const nombre = localStorage.getItem("nombre_usuario") || "Candidato";
                 const respuesta = await iniciarEntrevista(nombre);
-                const audioUrl = `http://localhost:8000/${respuesta.audio_url}`;
+                const audioUrl = `https://backend-confidai.onrender.com/${respuesta.audio_url}`;
                 setHistorial([{ rol: 'entrevistador', contenido: respuesta.respuesta_texto, hora: new Date() }]);
                 reproducirAudio(audioUrl, handleAudioEnded);
             } catch (error) {
@@ -169,7 +169,7 @@ const Avatar = () => {
                         if (segundosRestantes <= 60) return;
                         const respuesta = await avisarSilencio(historialActual);
                         setHistorial(prev => [...prev, { rol: 'entrevistador', contenido: respuesta.respuesta_texto, hora: new Date() }]);
-                        const audioUrl = `http://localhost:8000/${respuesta.audio_url}`;
+                        const audioUrl = `https://backend-confidai.onrender.com/${respuesta.audio_url}`;
                         if (respuesta.entrevista_finalizada) {
                             finalizarYRedirigir(audioUrl, historialActual, metricasVoz);
                             return;
@@ -265,7 +265,7 @@ const Avatar = () => {
                         { rol: 'entrevistador', contenido: respuesta.respuesta_texto, hora: new Date() }
                     ];
                     setHistorial(nuevoHistorial);
-                    const audioUrl = `http://localhost:8000/${respuesta.audio_url}`;
+                    const audioUrl = `https://backend-confidai.onrender.com/${respuesta.audio_url}`;
                     const nuevasMetricas = respuesta.analisis_voz ? [...metricasVoz, respuesta.analisis_voz] : metricasVoz;
                     if (respuesta.analisis_voz) setMetricasVoz(nuevasMetricas);
                     if (respuesta.entrevista_finalizada) {

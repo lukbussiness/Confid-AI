@@ -47,7 +47,7 @@ const Header = () => {
     const token = localStorage.getItem("token");
     if (!token) return;
 
-    fetch("http://127.0.0.1:8000/usuarios/perfil", {
+    fetch("https://backend-confidai.onrender.com/usuarios/perfil", {
       headers: {
         Authorization: `Bearer ${token}`
       }

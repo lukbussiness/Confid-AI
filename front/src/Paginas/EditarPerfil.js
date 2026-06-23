@@ -62,7 +62,7 @@ useEffect(() => {
     return;
   }
 
-  fetch("http://127.0.0.1:8000/usuarios/perfil", {
+  fetch("https://backend-confidai.onrender.com/usuarios/perfil", {
     method: "GET",
     headers: {
       "Authorization": `Bearer ${token}`
@@ -138,7 +138,7 @@ const handleSubmit = async (e) => {
   }
 
   try {
-    const res = await fetch("http://127.0.0.1:8000/usuarios/perfil", {
+    const res = await fetch("https://backend-confidai.onrender.com/usuarios/perfil", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

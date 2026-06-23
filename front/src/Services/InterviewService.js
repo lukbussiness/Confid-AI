@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:8000/interview';
+const API_URL = 'https://backend-confidai.onrender.com/interview';
 
 // ============================================
 // ENVIAR RESPUESTA DE VOZ NORMAL
@@ -9,7 +9,7 @@ export const iniciarEntrevista = async (nombre) => {
     const formData = new FormData();
     formData.append("nombre", nombre);
 
-    const response = await fetch("http://localhost:8000/interview/iniciar", {
+    const response = await fetch("https://backend-confidai.onrender.com/interview/iniciar", {
         method: "POST",
         body: formData
     });
@@ -23,7 +23,7 @@ export const enviarRespuestaVoz = async (audioBlob, historial) => {
     formData.append("audio", audioBlob);
     formData.append("historial", JSON.stringify(historial));
 
-    const response = await fetch("http://localhost:8000/interview/responder-voz", {
+    const response = await fetch("https://backend-confidai.onrender.com/interview/responder-voz", {
         method: "POST",
         body: formData
     });
@@ -38,7 +38,7 @@ export const avisarSilencio = async (historial) => {
     const formData = new FormData();
     formData.append("historial", JSON.stringify(historial));
 
-    const response = await fetch("http://localhost:8000/interview/silencio", {
+    const response = await fetch("https://backend-confidai.onrender.com/interview/silencio", {
         method: "POST",
         body: formData
     });
