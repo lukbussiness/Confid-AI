@@ -13,3 +13,4 @@ bcrypt==5.0.0
 pydantic==2.12.4
 SQLAlchemy==1.4.54
 PyMySQL==1.1.2
+email-validator
