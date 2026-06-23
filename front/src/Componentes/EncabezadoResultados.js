@@ -55,7 +55,7 @@ const Header = () => {
 
       <div className="header-right">
         <Link to="/perfil" className="profile-link">
-          <FaUserCircle className="user-icon" />
+          
         </Link>
 
         <div className="user-info">
