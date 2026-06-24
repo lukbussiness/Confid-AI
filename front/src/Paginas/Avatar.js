@@ -188,61 +188,31 @@ const Avatar = () => {
     // ============================================
     // CÁMARA
     // ============================================
-useEffect(() => {
-    inicioEntrevistaRef.current = Date.now();
-
-    const initCamera = async () => {
-        try {
-            const stream = await navigator.mediaDevices.getUserMedia({ video: true });
-            if (localVideoRef.current) localVideoRef.current.srcObject = stream;
-            setCameraReady(true);
-            setCameraInitialized(true);
-        } catch (err) {
-            console.error("No se pudo acceder a la cámara:", err);
-            setCameraError(true);
-            setErrorMsg('⚠️ Debes encender la cámara para comenzar la entrevista.');
-            setCameraInitialized(true);
-        }
-    };
-
-    initCamera();
-
-    const video = localVideoRef.current;
-
-    return () => {
-        limpiarTimerSilencio();
-
-        if (redireccionTimerRef.current) {
-            clearTimeout(redireccionTimerRef.current);
-        }
-
-        // DETENER AUDIO DEL AVATAR
-        if (audioPlayerRef.current) {
-            audioPlayerRef.current.pause();
-            audioPlayerRef.current.currentTime = 0;
-            audioPlayerRef.current.onended = null;
-        }
-
-        // DETENER VIDEO DEL AVATAR
-        if (avatarVideoRef.current) {
-            avatarVideoRef.current.pause();
-            avatarVideoRef.current.currentTime = 0;
-        }
-
-        // DETENER GRABACIÓN SI EXISTE
-       if (
-        mediaRecorderRef.current &&
-        mediaRecorderRef.current.state !== "inactive"
-        ) {
-        mediaRecorderRef.current.stop();
-    }
-
-        // APAGAR CÁMARA
-        if (video && video.srcObject) {
-            video.srcObject.getTracks().forEach(track => track.stop());
-        }
-    };
-}, []);
+    useEffect(() => {
+        inicioEntrevistaRef.current = Date.now();
+        const initCamera = async () => {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+                if (localVideoRef.current) localVideoRef.current.srcObject = stream;
+                setCameraReady(true);
+                setCameraInitialized(true);
+            } catch (err) {
+                console.error("No se pudo acceder a la cámara:", err);
+                setCameraError(true);
+                setErrorMsg('⚠️ Debes encender la cámara para comenzar la entrevista.');
+                setCameraInitialized(true);
+            }
+        };
+        initCamera();
+        const video = localVideoRef.current;
+        return () => {
+            limpiarTimerSilencio();
+            if (redireccionTimerRef.current) clearTimeout(redireccionTimerRef.current);
+            if (video && video.srcObject) {
+                video.srcObject.getTracks().forEach(track => track.stop());
+            }
+        };
+    }, []);
 
     useEffect(() => {
         if (status === 'idle') {
