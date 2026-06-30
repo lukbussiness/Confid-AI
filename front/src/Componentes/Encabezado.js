@@ -17,27 +17,26 @@ const Header = () => {
       imageHeight: 100,
       showCancelButton: true,
       confirmButtonText: "Sí, salir",
-      cancelButtonText: "Cancelar"
+      cancelButtonText: "Cancelar",
+      confirmButtonColor: "#2b7de9",
+      cancelButtonColor: "#afb8c2"
     }).then((result) => {
       if (result.isConfirmed) {
-
         localStorage.removeItem("token");
-
         Swal.fire({
           title: "Sesión cerrada",
           text: "Tu sesión se cerró correctamente",
-          icon: "success"
+          icon: "success",
+          confirmButtonColor: "#2b7de9"
         }).then(() => {
           window.location.replace("/");
         });
-
       }
     });
   };
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-
     if (!token) {
       window.location.href = "/";
     }
@@ -61,7 +60,6 @@ const Header = () => {
 
   return (
     <header className="header">
-
       <div className="header-left">
         <div className="logo">
           <img
@@ -70,7 +68,6 @@ const Header = () => {
             alt="logo"
           />
         </div>
-
         <h1 className="logo-text">
           Confid<span className="highlight">AI</span>
         </h1>
@@ -78,36 +75,37 @@ const Header = () => {
 
       {/* BOTON HAMBURGUESA */}
       <button
-        className="menu-toggle"
+        className={`menu-toggle ${menuOpen ? "active" : ""}`}
         onClick={() => setMenuOpen(!menuOpen)}
+        aria-label="Toggle menu"
       >
         {menuOpen ? <FaTimes /> : <FaBars />}
       </button>
 
-      {/* MENU */}
-      <nav className={`nav ${menuOpen ? "open" : ""}`}>
+      {/* CAPA TRASLÚCIDA DE FONDO (OVERLAY) */}
+      {menuOpen && <div className="nav-overlay" onClick={() => setMenuOpen(false)}></div>}
 
+      {/* MENÚ DESLIZABLE */}
+      <nav className={`nav ${menuOpen ? "open" : ""}`}>
         {/* PERFIL MOVIL */}
         <div className="mobile-user">
-
           <FaUserCircle className="user-icon" />
-
           <div className="mobile-user-info">
-            <span>
-              Hola, {(userName || "Usuario").charAt(0).toUpperCase() +
-                (userName || "Usuario").slice(1)}
+            <span className="mobile-welcome">Hola,</span>
+            <span className="mobile-name">
+              {(userName || "Usuario").charAt(0).toUpperCase() + (userName || "Usuario").slice(1)}
             </span>
-
-            <Link to="/perfil" onClick={() => setMenuOpen(false)}>
-              Ver perfil
+            <Link to="/perfil" onClick={() => setMenuOpen(false)} className="mobile-profile-link">
+              Ver perfil →
             </Link>
           </div>
-
         </div>
 
-        <Link to="/resultados" onClick={() => setMenuOpen(false)}>
-          Mis Resultados
-        </Link>
+        <div className="nav-links-wrapper">
+          <Link to="/resultados" className="nav-item" onClick={() => setMenuOpen(false)}>
+            📊 Mis Resultados
+          </Link>
+        </div>
 
         <button
           className="logout-btn mobile-only"
@@ -123,22 +121,18 @@ const Header = () => {
           />
           Cerrar sesión
         </button>
-
       </nav>
 
       {/* PANEL DERECHO ESCRITORIO */}
       <div className="header-right">
-
         <Link to="/perfil" className="profile-link">
           <FaUserCircle className="user-icon" />
         </Link>
 
         <div className="user-info">
           <span>
-            Hola, {(userName || "Usuario").charAt(0).toUpperCase() +
-              (userName || "Usuario").slice(1)}
+            Hola, {(userName || "Usuario").charAt(0).toUpperCase() + (userName || "Usuario").slice(1)}
           </span>
-
           <Link to="/perfil" className="profile-link">
             <h5 className="ver_perfil">Ver perfil</h5>
           </Link>
@@ -151,9 +145,7 @@ const Header = () => {
             className="logout-icon"
           />
         </button>
-
       </div>
-
     </header>
   );
 };
