@@ -141,7 +141,7 @@
 .mobile-only { display: none; }
 
 /* ==========================================================================
-   MEDIA QUERIES - DISEÑO RESPONSIVO DE ALTA CALIDAD (BLANCO/CLARO)
+   MEDIA QUERIES - DISEÑO RESPONSIVO MÓVIL (BLANCO CON LÍNEAS TENUES)
    ========================================================================== */
 
 @media (max-width: 1024px) {
@@ -149,13 +149,12 @@
   .logo-text { font-size: 22px; }
 }
 
-/* CAMBIO ELEGANTE A DISPOSITIVOS MÓVILES (HASTA 768px) */
 @media (max-width: 768px) {
   .header-right {
-    display: none; /* Oculta la barra de usuario superior de escritorio */
+    display: none;
   }
 
-  /* BOTÓN HAMBURGUESA LIMPIO Y MODERNO */
+  /* BOTÓN HAMBURGUESA */
   .menu-toggle {
     display: flex;
     align-items: center;
@@ -179,17 +178,17 @@
     transform: rotate(90deg);
   }
 
-  /* OSCURECIMIENTO SUAVE DETRÁS DEL MENÚ SLLIDE-OUT */
+  /* FONDO OSCURECIDO DETRÁS DEL MENÚ */
   .nav-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(3px);
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(2px);
     z-index: 99;
     animation: fadeIn 0.25s ease;
   }
 
-  /* PANEL LATERAL SLIDE-DRAWER EN COLOR BLANCO PULIDO */
+  /* PANEL LATERAL SLIDE-DRAWER (BLANCO IMPOLUTO) */
   .nav {
     position: fixed;
     top: 0;
@@ -197,40 +196,36 @@
     height: 100vh;
     height: 100dvh;
     width: 290px;
-    background: rgba(255, 255, 255, 0.98);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border-left: 1px solid #e5e7eb;
-    box-shadow: -8px 0 32px rgba(0, 0, 0, 0.06);
+    background: #ffffff;
+    border-left: 1px solid #e2e8f0;
+    box-shadow: -6px 0 24px rgba(0, 0, 0, 0.04);
     padding: 40px 24px;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
     gap: 0;
     z-index: 100;
-    
-    /* Estado inicial: oculto a la derecha */
     transform: translateX(100%);
-    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .nav.open {
-    transform: translateX(0); /* Desliza el menú hacia adentro */
+    transform: translateX(0);
   }
 
-  /* BLOQUE DE PERFIL SUPERIOR DENTRO DEL MENU MÓVIL */
+  /* BLOQUE DE PERFIL SUPERIOR MÓVIL */
   .mobile-user {
     display: flex;
     align-items: center;
     gap: 14px;
     width: 100%;
     padding-bottom: 20px;
-    margin-bottom: 24px;
-    border-bottom: 1px solid #f1f5f9;
+    margin-bottom: 16px;
+    border-bottom: 1px solid #e2e8f0; /* Línea divisoria del perfil */
   }
 
   .mobile-user .user-icon {
-    font-size: 46px;
+    font-size: 44px;
     color: #64748b;
   }
 
@@ -240,14 +235,14 @@
   }
 
   .mobile-welcome {
-    font-size: 12px;
+    font-size: 11px;
     color: #94a3b8;
     text-transform: uppercase;
     letter-spacing: 0.5px;
   }
 
   .mobile-name {
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 700;
     color: #1e293b;
     margin-bottom: 2px;
@@ -265,19 +260,20 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    gap: 10px;
-    flex: 1; /* Distribuye el espacio para empujar cerrar sesión al fondo */
+    gap: 0; /* Sin separaciones por bloques */
+    flex: 1;
   }
 
+  /* ITEMS DEL MENÚ SEPARADOS POR UNA LEVE LÍNEA */
   .nav-item {
     width: 100%;
-    padding: 12px 16px;
-    border-radius: 12px;
-    background: #f8fafc;
-    border: 1px solid #f1f5f9;
+    padding: 16px 4px; /* Espaciado cómodo y limpio */
+    background: transparent !important; /* Totalmente transparente */
+    border: none;
+    border-bottom: 1px solid #f1f5f9; /* LA LEVE LÍNEA DIVISORIA EN MÓVIL */
     color: #334155 !important;
     font-size: 15px !important;
-    font-weight: 600 !important;
+    font-weight: 500 !important;
     display: flex;
     align-items: center;
     transition: all 0.2s ease;
@@ -285,12 +281,10 @@
 
   .nav-item:hover {
     color: #2b7de9 !important;
-    background: #f0f7ff;
-    border-color: #e0effe;
-    transform: translateX(4px);
+    padding-left: 10px; /* Efecto sutil de desplazamiento al presionar o pasar el mouse */
   }
 
-  /* BOTÓN CERRAR SESIÓN ADAPTADO A LIGHT THEME */
+  /* BOTÓN CERRAR SESIÓN MÓVIL MÁS DISCRETO */
   .mobile-only {
     display: flex;
     align-items: center;
@@ -298,31 +292,30 @@
     gap: 10px;
     width: 100%;
     height: 48px;
-    border-radius: 12px;
+    border-radius: 10px;
     background: #fff1f2;
     border: 1px solid #ffe4e6;
     color: #e11d48;
     font-size: 15px;
-    font-weight: 700;
+    font-weight: 600;
     cursor: pointer;
-    margin-top: auto; /* Fijado al fondo */
+    margin-top: auto;
     transition: all 0.2s ease;
   }
 
   .mobile-only .logout-icon {
-    width: 22px;
-    height: 22px;
+    width: 20px;
+    height: 20px;
   }
 
   .mobile-only:hover {
     background: #e11d48;
     color: #ffffff;
     border-color: #e11d48;
-    box-shadow: 0 4px 12px rgba(225, 29, 72, 0.15);
   }
 
   .mobile-only:hover .logout-icon {
-    filter: invert(1) brightness(2); /* Vuelve blanco el icono en hover */
+    filter: invert(1) brightness(2);
   }
 }
 
