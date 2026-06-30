@@ -24,14 +24,14 @@
 
 .logo {
   width: 48px;
-  height: 48px;
+  height: 50px;
   border-radius: 10px;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
   background: #f0f7ff;
-  border: 1px solid rgba(43, 125, 233, 0.2);
+  border: 0px solid rgba(43, 125, 233, 0.2);
   flex-shrink: 0;
 }
 
