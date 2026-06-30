@@ -351,3 +351,198 @@ body {
     height: 200px;
   }
 }
+
+
+/* ==========================================
+   NUEVAS SECCIONES FUTURISTAS (SCROLL)
+   ========================================== */
+
+.titulo-secundario {
+  font-size: 45px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 50px;
+  background: linear-gradient(135deg, #ffffff 0%, #a0d4ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.titulo-secundario span {
+  background: linear-gradient(135deg, #00d4ff, #00ff88);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* --- SECCIÓN ¿CÓMO FUNCIONA? --- */
+.seccion-pasos {
+  padding: 100px 80px;
+  background: linear-gradient(to bottom, #020b18, #010610);
+  color: white;
+  position: relative;
+}
+
+.contenedor-pasos {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.tarjeta-paso {
+  background: rgba(2, 11, 24, 0.5);
+  border: 1px solid rgba(0, 212, 255, 0.15);
+  border-radius: 20px;
+  padding: 40px 30px;
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  backdrop-filter: blur(10px);
+}
+
+.tarjeta-paso::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 3px;
+  background: linear-gradient(90deg, #0057ff, #00d4ff);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.tarjeta-paso:hover {
+  transform: translateY(-8px);
+  border-color: rgba(0, 212, 255, 0.4);
+  box-shadow: 0 20px 40px rgba(0, 212, 255, 0.05);
+}
+
+.tarjeta-paso:hover::before {
+  opacity: 1;
+}
+
+.numero-paso {
+  font-size: 48px;
+  font-weight: 800;
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.3), rgba(0, 255, 88, 0.1));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 15px;
+}
+
+.tarjeta-paso h3 {
+  font-size: 22px;
+  margin-bottom: 15px;
+  color: #ffffff;
+}
+
+.tarjeta-paso p {
+  font-size: 15px;
+  color: #a0c4e0;
+  line-height: 1.6;
+  opacity: 0.85;
+}
+
+/* --- SECCIÓN SOBRE NOSOTROS --- */
+.seccion-sobre {
+  padding: 100px 80px 140px 80px;
+  background: #010610;
+  color: white;
+}
+
+.sobre-bloque {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: radial-gradient(circle at top left, rgba(0, 87, 255, 0.05), transparent 60%);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 30px;
+  padding: 60px;
+  backdrop-filter: blur(5px);
+}
+
+.sobre-texto {
+  width: 100%;
+}
+
+.sobre-texto .titulo-secundario {
+  text-align: left;
+  margin-bottom: 25px;
+}
+
+.sobre-descripcion {
+  font-size: 18px;
+  color: #a0c4e0;
+  line-height: 1.8;
+  margin-bottom: 45px;
+  max-width: 90%;
+}
+
+.grid-caracteristicas {
+  display: flex;
+  gap: 40px;
+}
+
+.item-caracteristica {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.02);
+  padding: 25px;
+  border-radius: 15px;
+  border-left: 4px solid #00ff88;
+}
+
+.item-caracteristica h4 {
+  font-size: 18px;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.item-caracteristica p {
+  font-size: 14px;
+  color: #a0c4e0;
+  line-height: 1.6;
+  opacity: 0.8;
+}
+
+/* ==========================================
+   RESPONSIVE PARA LAS NUEVAS SECCIONES
+   ========================================== */
+
+@media (max-width: 1024px) {
+  .seccion-pasos, .seccion-sobre {
+    padding: 60px 40px;
+  }
+  .titulo-secundario {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 768px) {
+  .seccion-pasos, .seccion-sobre {
+    padding: 50px 20px;
+  }
+  
+  .titulo-secundario {
+    font-size: 28px;
+    margin-bottom: 35px;
+    text-align: center !important;
+  }
+
+  .contenedor-pasos {
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .sobre-bloque {
+    padding: 30px 20px;
+  }
+
+  .sobre-descripcion {
+    font-size: 15px;
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .grid-caracteristicas {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
