@@ -1,4 +1,3 @@
-
 :root {
   --bg-deep:    #020b18;
   --bg-card:    rgba(10, 20, 40, 0.80);
@@ -25,6 +24,7 @@
   padding: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
 html, body, #root {
   width: 100%;
   height: 100%;
@@ -33,15 +33,15 @@ html, body, #root {
   min-height: 100svh;
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
+  background: var(--bg-deep);
 }
+
 body {
   height: 100%;
   min-height: 100vh;
-  min-height: 100dvh;
-  min-height: 100svh;
 }
 
+/* --- ANIMACIONES --- */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(28px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -64,17 +64,17 @@ body {
   50%       { transform: translateY(-14px); }
 }
 
+/* --- CONTENEDOR DE PÁGINA --- */
 .ep-page {
-  height: 100%;
   min-height: 100vh;
   min-height: 100svh;
   display: flex;
   align-items: center;
   justify-content: center;
   background: var(--bg-deep);
-  padding: 24px 16px;
+  padding: 40px 20px;
   position: relative;
-  overflow: hidden;
+  overflow-y: auto; /* PERMITE SCROLL SI EL CONTENIDO SUPERA LA PANTALLA */
 }
 
 .ep-page::before {
@@ -109,6 +109,7 @@ body {
   z-index: 0;
 }
 
+/* --- TARJETA PRINCIPAL --- */
 .ep-card {
   display: flex;
   width: 1000px;
@@ -123,6 +124,7 @@ body {
   z-index: 1;
 }
 
+/* --- COLUMNA IZQUIERDA (DESKTOP) --- */
 .ep-left {
   position: relative;
   width: 40%;
@@ -189,6 +191,7 @@ body {
   z-index: 3;
 }
 
+/* --- COLUMNA DERECHA (FORMULARIO) --- */
 .ep-right {
   flex: 1;
   background: var(--bg-card);
@@ -197,7 +200,6 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  overflow-y: auto;
 }
 
 .ep-eyebrow {
@@ -224,6 +226,7 @@ body {
   line-height: 1.5;
 }
 
+/* --- SECCIÓN AVATAR INTRA-FORM --- */
 .ep-avatar-row {
   display: flex;
   align-items: center;
@@ -309,6 +312,7 @@ body {
   border-color: var(--cyan);
 }
 
+/* --- GRID DE INPUTS --- */
 .ep-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -381,6 +385,7 @@ body {
 .ep-strength-bar__segment--4 { background: var(--str-strong); }
 .ep-strength-label { font-size: 11px; font-weight: 600; margin-top: 2px; }
 
+/* --- BOTÓN SUBMIT --- */
 .ep-submit-btn {
   margin-top: 24px;
   height: 52px;
@@ -429,100 +434,130 @@ body {
 
 .ep-hidden { display: none; }
 
-@media (max-width: 900px){
 
-  .ep-card{
+/* ==========================================
+   MEDIA QUERIES - OPTIMIZACIÓN RESPONSIVA
+   ========================================== */
+
+@media (max-width: 900px){
+  .ep-card {
     width: 95%;
     min-height: auto;
   }
-
-  .ep-left-img{
+  .ep-left-img {
     width: 130%;
   }
-
-  .ep-right{
+  .ep-right {
     padding: 35px 30px;
   }
-
-  .ep-title{
+  .ep-title {
     font-size: 30px;
   }
-
 }
 
 @media (max-width: 640px){
-
-  .ep-card{
-    flex-direction: column;
-    border-radius: 18px;
+  .ep-page {
+    padding: 16px 12px;
   }
 
-  .ep-left{
+  .ep-card {
+    flex-direction: column;
+    border-radius: 20px;
+    min-height: auto;
+  }
+
+  /* El contenedor del robot ahora actúa como un banner superior controlado */
+  .ep-left {
     width: 100%;
-    min-height: 170px;
+    height: 180px;      /* Altura fija ideal para que no tape la pantalla */
+    min-height: 180px;
     justify-content: center;
+    align-items: center;
     padding-bottom: 0;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
   }
 
-  .ep-left-img{
-    width: 110%;
+  /* Ajustamos el robot para que flote centrado y no se desborde verticalmente */
+  .ep-left-img {
+    width: auto;
+    height: 150%;       /* Sobresale un poco de manera estética controlada */
+    max-height: 240px;
+    object-fit: contain;
+    margin-top: 20px;
   }
 
-  .ep-right{
-    padding: 25px 20px;
+  .ep-brand {
+    top: 16px;
+    left: 16px;
+    font-size: 18px;
   }
 
-  .ep-grid{
-    grid-template-columns: 1fr;
+  .ep-copyright {
+    display: none;      /* Ocultamos en móvil para ahorrar espacio vertical */
   }
 
-  .ep-avatar-row{
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
+  .ep-right {
+    padding: 30px 20px; /* Padding cómodo para pantallas angostas */
   }
 
-  .ep-avatar-wrap{
-    width: 60px;
-    height: 60px;
+  .ep-grid {
+    grid-template-columns: 1fr; /* Colapsa a una sola columna */
+    gap: 16px;
   }
 
-  .ep-avatar-circle{
-    width: 60px;
-    height: 60px;
+  .ep-avatar-row {
+    flex-direction: row; /* Mantiene la fila alineada en móvil sin romperse */
+    align-items: center;
+    gap: 14px;
+    padding: 12px 14px;
   }
 
-  .ep-title{
+  .ep-avatar-wrap, .ep-avatar-circle {
+    width: 56px;
+    height: 56px;
+  }
+
+  .ep-title {
     font-size: 26px;
   }
-
 }
+
 @media (max-width: 420px){
-
-  .ep-page{
-    padding: 15px 10px;
+  .ep-page {
+    padding: 10px 8px;
   }
 
-  .ep-right{
-    padding: 20px 15px;
+  .ep-left {
+    height: 150px;
+    min-height: 150px;
   }
 
-  .ep-title{
+  .ep-left-img {
+    height: 140%;
+  }
+
+  .ep-right {
+    padding: 24px 16px;
+  }
+
+  .ep-title {
     font-size: 22px;
   }
 
-  .ep-subtitle{
+  .ep-subtitle {
     font-size: 13px;
+    margin-bottom: 20px;
   }
 
-  .ep-input{
+  .ep-input {
     height: 46px;
     font-size: 14px;
   }
 
-  .ep-submit-btn{
+  .ep-submit-btn {
     height: 48px;
     font-size: 14px;
+    margin-top: 16px;
   }
-
 }
