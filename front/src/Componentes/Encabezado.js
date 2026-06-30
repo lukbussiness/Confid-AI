@@ -101,10 +101,12 @@ const Header = () => {
           </div>
         </div>
 
+        {/* CONTENEDOR DE ENLACES CON LÍNEAS DIVISORIAS */}
         <div className="nav-links-wrapper">
           <Link to="/resultados" className="nav-item" onClick={() => setMenuOpen(false)}>
-            📊 Mis Resultados
+            Mis Resultados
           </Link>
+          {/* Aquí puedes añadir más <Link className="nav-item"> en el futuro y se separarán automáticamente con la línea */}
         </div>
 
         <button
