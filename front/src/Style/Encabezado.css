@@ -23,8 +23,8 @@
 }
 
 .logo {
-  width: 42px;
-  height: 42px;
+  width: 48px;
+  height: 48px;
   border-radius: 10px;
   overflow: hidden;
   display: flex;
@@ -32,12 +32,14 @@
   justify-content: center;
   background: #f0f7ff;
   border: 1px solid rgba(43, 125, 233, 0.2);
+  flex-shrink: 0;
 }
 
 .logito {
-  width: 140px;
-  height: 140px;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
+  transform: scale(2.2);
 }
 
 .logo-text {
@@ -141,7 +143,7 @@
 .mobile-only { display: none; }
 
 /* ==========================================================================
-   MEDIA QUERIES - DISEÑO RESPONSIVO MÓVIL (BLANCO CON LÍNEAS TENUES)
+   MEDIA QUERIES - DISEÑO RESPONSIVO MÓVIL
    ========================================================================== */
 
 @media (max-width: 1024px) {
@@ -188,7 +190,7 @@
     animation: fadeIn 0.25s ease;
   }
 
-  /* PANEL LATERAL SLIDE-DRAWER (BLANCO IMPOLUTO) */
+  /* PANEL LATERAL SLIDE-DRAWER BLANCO */
   .nav {
     position: fixed;
     top: 0;
@@ -221,7 +223,7 @@
     width: 100%;
     padding-bottom: 20px;
     margin-bottom: 16px;
-    border-bottom: 1px solid #e2e8f0; /* Línea divisoria del perfil */
+    border-bottom: 1px solid #e2e8f0;
   }
 
   .mobile-user .user-icon {
@@ -260,17 +262,17 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    gap: 0; /* Sin separaciones por bloques */
+    gap: 0;
     flex: 1;
   }
 
   /* ITEMS DEL MENÚ SEPARADOS POR UNA LEVE LÍNEA */
   .nav-item {
     width: 100%;
-    padding: 16px 4px; /* Espaciado cómodo y limpio */
-    background: transparent !important; /* Totalmente transparente */
+    padding: 16px 4px;
+    background: transparent !important;
     border: none;
-    border-bottom: 1px solid #f1f5f9; /* LA LEVE LÍNEA DIVISORIA EN MÓVIL */
+    border-bottom: 1px solid #f1f5f9; /* Línea tenue entre secciones */
     color: #334155 !important;
     font-size: 15px !important;
     font-weight: 500 !important;
@@ -281,10 +283,10 @@
 
   .nav-item:hover {
     color: #2b7de9 !important;
-    padding-left: 10px; /* Efecto sutil de desplazamiento al presionar o pasar el mouse */
+    padding-left: 10px;
   }
 
-  /* BOTÓN CERRAR SESIÓN MÓVIL MÁS DISCRETO */
+  /* BOTÓN CERRAR SESIÓN MÓVIL */
   .mobile-only {
     display: flex;
     align-items: center;
