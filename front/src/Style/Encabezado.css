@@ -1,273 +1,332 @@
+/* ==========================================================================
+   CONFIGURACIÓN GENERAL DEL ENCABEZADO (PREMIUM LIGHT STYLE)
+   ========================================================================== */
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 40px 40px;
-  background-color: white;
-  border-bottom: 1px solid #ddd;
+  padding: 20px 40px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #eaeaea;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  position: relative;
-}
-.logout-btn{
-  background: none;
-  border: none;
-  cursor: pointer;
+  position: sticky;
+  top: 0;
+  z-index: 99;
 }
 
-.logout-icon{
-  width: 45px;
-  height: 45px;
-  transition: transform 0.2s;
-}
-
-.logout-icon:hover{
-  transform: scale(1.1);
-}
-
+/* --- LOGO Y SECCIÓN IZQUIERDA --- */
 .header-left {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
 }
+
 .logo {
-  width: 30px;
-  height: 35px;
-  border: 2px solid #2b7de9;
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
+  background: #f0f7ff;
+  border: 1px solid rgba(43, 125, 233, 0.2);
 }
+
 .logito {
-  width: 120px;
-  height: 110px;
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
 }
+
 .logo-text {
-  font-size: 30px;
-  margin-left: 10px;
-  font-weight: bold;
-  color: #333;
+  font-size: 26px;
+  font-weight: 700;
+  color: #222222;
+  letter-spacing: -0.5px;
 }
+
 .highlight {
   color: #2b7de9;
 }
 
+/* --- MENÚ DE NAVEGACIÓN (ESCRITORIO) --- */
 .nav {
   display: flex;
-  gap: 30px;
-  font-size: 25px;
+  align-items: center;
+  gap: 32px;
 }
 
 .nav a {
   text-decoration: none;
-  color: #333;
-  font-size: 25px;
+  color: #444444;
+  font-size: 16px;
+  font-weight: 500;
+  transition: color 0.2s ease;
 }
 
 .nav a:hover {
   color: #2b7de9;
 }
 
+/* --- PANEL USUARIO Y BOTONES (ESCRITORIO) --- */
 .header-right {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 14px;
 }
 
 .profile-link {
   display: flex;
   align-items: center;
-  gap: 10px;
   text-decoration: none;
 }
 
 .user-icon {
-  font-size: 40px;
-  color: #555;
+  font-size: 38px;
+  color: #555555;
+  transition: color 0.2s;
+}
+.profile-link:hover .user-icon {
+  color: #2b7de9;
 }
 
 .user-info {
   display: flex;
   flex-direction: column;
-  font-size: 20px;
   color: #141414;
+  font-size: 14px;
 }
 
-.user-info small {
+.user-info span {
+  font-weight: 600;
+}
+
+.ver_perfil {
+  color: #2b7de9;
   font-size: 12px;
-  color: #141414;
+  font-weight: 600;
+  margin-top: 2px;
+  text-decoration: none;
 }
 
-h5{
-  justify-content: center;
-  align-items: center;
-  margin-left: 7%;
-}
-.ver_perfil{
-  text-decoration:none;
-  color:#2b7de9;
-  font-size:13px;
+.ver_perfil:hover {
+  text-decoration: underline;
 }
 
-.menu-toggle {
-  display: none;
+.logout-btn {
   background: none;
   border: none;
-  font-size: 28px;
   cursor: pointer;
-  color: #333;
-  z-index: 100;
-}
-.mobile-user{
-  display:none;
-}
-
-.mobile-user-info{
-  display:flex;
-  flex-direction:column;
-  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
 }
 
-.mobile-only{
-  display:none;
+.logout-icon {
+  width: 32px;
+  height: 32px;
+  transition: transform 0.2s ease;
 }
+
+.logout-btn:hover .logout-icon {
+  transform: scale(1.1);
+}
+
+/* --- ELEMENTOS OCULTOS POR DEFECTO --- */
+.menu-toggle { display: none; }
+.mobile-user { display: none; }
+.mobile-only { display: none; }
+
+/* ==========================================================================
+   MEDIA QUERIES - DISEÑO RESPONSIVO DE ALTA CALIDAD (BLANCO/CLARO)
+   ========================================================================== */
+
 @media (max-width: 1024px) {
-
-  .header {
-    padding: 20px 30px;
-  }
-
-  .logito {
-    width: 80px;
-    height: 70px;
-  }
-
-  .logo-text {
-    font-size: 22px;
-  }
-
-  .nav a {
-    font-size: 18px;
-  }
-
-  .nav {
-    gap: 20px;
-    font-size: 18px;
-  }
-
-  .user-icon {
-    font-size: 30px;
-  }
-
-  .user-info {
-    font-size: 15px;
-  }
+  .header { padding: 16px 24px; }
+  .logo-text { font-size: 22px; }
 }
-@media (max-width: 768px) {
 
-  .header {
-    flex-wrap: wrap;
-    padding: 14px 16px;
-    gap: 10px;
+/* CAMBIO ELEGANTE A DISPOSITIVOS MÓVILES (HASTA 768px) */
+@media (max-width: 768px) {
+  .header-right {
+    display: none; /* Oculta la barra de usuario superior de escritorio */
+  }
+
+  /* BOTÓN HAMBURGUESA LIMPIO Y MODERNO */
+  .menu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    width: 42px;
+    height: 42px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #334155;
+    z-index: 101;
+    transition: all 0.25s ease;
+  }
+
+  .menu-toggle.active {
+    color: #ef5350;
+    border-color: #fdd8d8;
+    background: #fff5f5;
+    transform: rotate(90deg);
+  }
+
+  /* OSCURECIMIENTO SUAVE DETRÁS DEL MENÚ SLLIDE-OUT */
+  .nav-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(3px);
+    z-index: 99;
+    animation: fadeIn 0.25s ease;
+  }
+
+  /* PANEL LATERAL SLIDE-DRAWER EN COLOR BLANCO PULIDO */
+  .nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    height: 100dvh;
+    width: 290px;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-left: 1px solid #e5e7eb;
+    box-shadow: -8px 0 32px rgba(0, 0, 0, 0.06);
+    padding: 40px 24px;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 0;
+    z-index: 100;
+    
+    /* Estado inicial: oculto a la derecha */
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .nav.open {
+    transform: translateX(0); /* Desliza el menú hacia adentro */
+  }
+
+  /* BLOQUE DE PERFIL SUPERIOR DENTRO DEL MENU MÓVIL */
+  .mobile-user {
     display: flex;
+    align-items: center;
+    gap: 14px;
+    width: 100%;
+    padding-bottom: 20px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid #f1f5f9;
   }
 
-  .nav a {
-    font-size: 16px;
-    padding: 6px 0;
+  .mobile-user .user-icon {
+    font-size: 46px;
+    color: #64748b;
   }
 
-  .logito {
-    width: 75px;
-    height: 70px;
+  .mobile-user-info {
+    display: flex;
+    flex-direction: column;
   }
 
-  .logo-text {
-    font-size: 25px;
+  .mobile-welcome {
+    font-size: 12px;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
   }
 
-  .user-info {
-    font-size: 15px;
+  .mobile-name {
+    font-size: 17px;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 2px;
   }
 
-  .user-icon {
-    font-size: 26px;
+  .mobile-profile-link {
+    font-size: 13px;
+    color: #2b7de9 !important;
+    font-weight: 600;
+    text-decoration: none;
   }
 
-  .logout-icon{
-    width: 35px;
-    height: 35px;
-  }
-}
-@media (max-width: 480px) {
-
-  .menu-toggle {
-    display: block;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-  }
-
-  .header-right {
-    display: none;
-  }
-
-  .nav {
-    display: none;
+  /* CONTENEDOR DE ENLACES INTERNOS */
+  .nav-links-wrapper {
+    display: flex;
     flex-direction: column;
     width: 100%;
-    background: white;
-    border-top: 1px solid #ddd;
-    padding: 15px;
-    gap: 15px;
+    gap: 10px;
+    flex: 1; /* Distribuye el espacio para empujar cerrar sesión al fondo */
   }
 
-  .nav.open {
+  .nav-item {
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 12px;
+    background: #f8fafc;
+    border: 1px solid #f1f5f9;
+    color: #334155 !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
     display: flex;
+    align-items: center;
+    transition: all 0.2s ease;
   }
 
-  .mobile-user{
-    display:flex;
-    align-items:center;
-    gap:12px;
-    border-bottom:1px solid #ddd;
-    padding-bottom:10px;
+  .nav-item:hover {
+    color: #2b7de9 !important;
+    background: #f0f7ff;
+    border-color: #e0effe;
+    transform: translateX(4px);
   }
 
-  .mobile-user-info span{
-    font-size:13px;
+  /* BOTÓN CERRAR SESIÓN ADAPTADO A LIGHT THEME */
+  .mobile-only {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    height: 48px;
+    border-radius: 12px;
+    background: #fff1f2;
+    border: 1px solid #ffe4e6;
+    color: #e11d48;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: auto; /* Fijado al fondo */
+    transition: all 0.2s ease;
   }
 
-  .mobile-user-info a{
-    font-size:13px;
-    text-decoration:none;
-    color:#2b7de9;
+  .mobile-only .logout-icon {
+    width: 22px;
+    height: 22px;
   }
 
-  .mobile-only{
-    display:flex;
-    align-items:center;
-    gap:10px;
+  .mobile-only:hover {
+    background: #e11d48;
+    color: #ffffff;
+    border-color: #e11d48;
+    box-shadow: 0 4px 12px rgba(225, 29, 72, 0.15);
   }
 
-  .header{
-    padding: 20px 20px;
+  .mobile-only:hover .logout-icon {
+    filter: invert(1) brightness(2); /* Vuelve blanco el icono en hover */
   }
+}
 
-  .logo-text {
-    font-size: 20px;
-  }
-
-  .logito {
-    width: 80px;
-    height: 70px;
-  }
-
-  .logout-icon{
-    width: 35px;
-    height: 35px;
-  }
-
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
